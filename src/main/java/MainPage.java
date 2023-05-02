@@ -17,10 +17,10 @@ public class MainPage {
         WebElement allAdt = (new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[contains(@class, 'IndexSelector__submit')]/button/span/span"))));
         allAdt.click();
-        Helper.waitUntilPageLoads(driver, Duration.ofSeconds(10));
+
     }
 
-    public static void changeRegion(WebDriver driver) throws InterruptedException {
+    public static void changeRegion(WebDriver driver, String region) throws InterruptedException {
         Helper.disableAdd(driver);
         WebElement allAdt = (new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[contains(@class, 'TopNavigationIndicators ')]/div/div/div[1]/span"))));
@@ -38,7 +38,7 @@ public class MainPage {
         changeSity.moveToElement(sityInput)
                 .click()
                 .pause(Duration.ofSeconds(2))
-                .sendKeys("Москва")
+                .sendKeys(region)
                 .keyDown(Keys.DOWN)
                 .pause(Duration.ofSeconds(2))
                 .keyDown(Keys.DOWN)
@@ -55,10 +55,9 @@ public class MainPage {
         Thread.sleep(2000);
         save.click();
 
-        Helper.disableAdd(driver);
     }
 
-    public static void quickSearch(WebDriver driver) throws InterruptedException {
+    public static void quickSearch(WebDriver driver, String searchBody) throws InterruptedException {
         Helper.disableAdd(driver);
 
         WebElement seachLookClick = (new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -68,11 +67,11 @@ public class MainPage {
         inputInSearch.moveToElement(seachLookClick)
                 .click()
                 .pause(Duration.ofSeconds(2))
-                .sendKeys("Mercedes-Benz GLE Coupe AMG")
+                .sendKeys(searchBody)
                 .pause(Duration.ofSeconds(2))
                 .keyDown(Keys.ENTER)
                 .release().build().perform();
-
+        Thread.sleep(5000);
     }
 
 }

@@ -10,14 +10,14 @@ import java.time.Duration;
 
 public class CarsPage {
 
-    public static void changeMark(WebDriver driver, String markName) {
+    public static void changeMark(WebDriver driver, String markName) throws InterruptedException {
         //todo
         // firefox moment
         // Helper.disableAdd(driver);
         WebElement marka = (new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[contains(@class, 'MMMMultiFilter')]"
-                        + "/div/div/div/div[1]/div/button/span/span"))));
-
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div/div[2]/div[3]/div[2]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div/div[1]/div/button/span/span"))));
+        System.out.println(marka.getAttribute("class"));
+        marka.click();
         Actions action = new Actions(driver);
         action.moveToElement(marka)
                 .doubleClick()
@@ -26,6 +26,7 @@ public class CarsPage {
                 .keyDown(Keys.DOWN)
                 .keyDown(Keys.ENTER)
                 .release().build().perform();
+        Thread.sleep(5000);
     }
 
     public static void clickOnAdt(WebDriver driver, int adtNum) throws InterruptedException {
@@ -38,18 +39,6 @@ public class CarsPage {
                         ))));
         Thread.sleep(2000);
         adt.click();
-
-
-        //        String originalWindow = driver.getWindowHandle();
-//        String[] carName = adt.getText().split(" ");
-//        String expected= carName[0].toLowerCase()+"/"+carName[1].toLowerCase();
-//        adt.click();
-//        for (String windowHandle : driver.getWindowHandles()) {
-//            if(!originalWindow.contentEquals(windowHandle)) {
-//                driver.switchTo().window(windowHandle);
-//                break;
-//            }
-//        }
-//         ( driver.getCurrentUrl());
+        Thread.sleep(2000);
     }
 }

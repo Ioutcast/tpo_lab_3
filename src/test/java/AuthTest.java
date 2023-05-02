@@ -12,7 +12,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AuthTest {
-    private static LabFireFoxDriver labChromeDriver;
+    private static LabChromeDriver labChromeDriver;
     private static WebDriver driver;
     private static String _login;
     private static String _password;
@@ -20,8 +20,8 @@ public class AuthTest {
 
     @BeforeEach
     void init() {
-        labChromeDriver = new LabFireFoxDriver();
-        driver = labChromeDriver.getFireFoxDriver();
+        labChromeDriver = new LabChromeDriver();
+        driver = labChromeDriver.getChromeDriver();
         _login = "itmostud";
         _password = "Tpo_pass_itmo_stud";
         _wrongpassword = "Tpo_pass_itmo_stud1";
