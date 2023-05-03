@@ -13,11 +13,7 @@ public class LabFireFoxDriver {
     public LabFireFoxDriver() {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-        firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NONE);
-        firefoxOptions.addArguments("--no-sandbox");
-        firefoxOptions.addArguments("--disable-dev-shm-usage");
-        firefoxOptions.addArguments("--disable-browser-side-navigation");
-        firefoxOptions.addArguments("--disable-gpu");
+        firefoxOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
         System.setProperty("webdriver.gecko.driver", "D:\\driver\\geckodriver.exe");
         fireFoxDriver = new FirefoxDriver(firefoxOptions);
         fireFoxDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));

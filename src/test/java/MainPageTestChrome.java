@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MainPageTest {
+public class MainPageTestChrome {
 
     private static LabChromeDriver labChromeDriver;
     private static WebDriver driver;
@@ -21,6 +21,7 @@ public class MainPageTest {
     @AfterEach
     void closeDriver() {
         driver.close();
+        driver.quit();
     }
 
     @Test

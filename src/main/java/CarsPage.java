@@ -14,19 +14,20 @@ public class CarsPage {
         //todo
         // firefox moment
         // Helper.disableAdd(driver);
+
         WebElement marka = (new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div/div[2]/div[3]/div[2]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div/div[1]/div/button/span/span"))));
-        System.out.println(marka.getAttribute("class"));
-        marka.click();
+        Thread.sleep(5000);
         Actions action = new Actions(driver);
         action.moveToElement(marka)
-                .doubleClick()
-                .pause(Duration.ofSeconds(2))
+                .click()
+                .pause(Duration.ofSeconds(1))
                 .sendKeys(markName)
+                .pause(Duration.ofSeconds(2))
                 .keyDown(Keys.DOWN)
                 .keyDown(Keys.ENTER)
                 .release().build().perform();
-        Thread.sleep(5000);
+        Thread.sleep(4000);
     }
 
     public static void clickOnAdt(WebDriver driver, int adtNum) throws InterruptedException {

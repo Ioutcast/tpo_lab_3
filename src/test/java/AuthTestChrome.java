@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AuthTest {
+public class AuthTestChrome {
     private static LabChromeDriver labChromeDriver;
     private static WebDriver driver;
     private static String _login;
@@ -31,6 +31,7 @@ public class AuthTest {
     @AfterAll
     static void closeDriver() {
         driver.close();
+        driver.quit();
     }
 
     @Test
@@ -41,7 +42,6 @@ public class AuthTest {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//a[contains(@class, 'Link HeaderUserMenu__avatar')]/img"))));
         assertEquals("img", loginButtonOnAuto.getTagName());
         driver.manage().deleteAllCookies();
-        driver.quit();
     }
 
     @Test
